@@ -5,8 +5,10 @@ const SPEED = 100.0
 const SPRINT_SPEED= 150
 const JUMP_VELOCITY = -350.0
 const CLIMB_SPEED = -75
-@onready var _animatedSprite = $AnimatedSprite2D
+@onready var _animatedSprite = $Animacion_wanderer
 
+func _ready() -> void:
+	_animatedSprite.animation_finished.connect(_on_animation_finished)
 func _physics_process(delta: float) -> void:
 	#animacion idle
 	# Add the gravity.
@@ -46,3 +48,7 @@ func _physics_process(delta: float) -> void:
 			_animatedSprite.play("Idle")
 
 	move_and_slide()
+#funcion para gestionar los finales y transiciones de animaciones
+func _on_animation_finished() -> void:
+	
+	
