@@ -296,6 +296,10 @@ region = Rect2(512, 0, 128, 128)
 atlas = ExtResource("6_4d7sh")
 region = Rect2(640, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjt7e"]
+atlas = ExtResource("6_4d7sh")
+region = Rect2(640, 0, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
 atlas = ExtResource("5_4d7sh")
 region = Rect2(0, 0, 128, 128)
@@ -328,6 +332,14 @@ region = Rect2(768, 0, 128, 128)
 atlas = ExtResource("5_4d7sh")
 region = Rect2(896, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xo8l"]
+atlas = ExtResource("6_4d7sh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytlpd"]
+atlas = ExtResource("6_4d7sh")
+region = Rect2(896, 0, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mj2a"]
 atlas = ExtResource("6_4d7sh")
 region = Rect2(384, 0, 128, 128)
@@ -339,14 +351,6 @@ region = Rect2(512, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbrxf"]
 atlas = ExtResource("6_4d7sh")
 region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjt7e"]
-atlas = ExtResource("6_4d7sh")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0xo8l"]
-atlas = ExtResource("6_4d7sh")
-region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
 atlas = ExtResource("6_ir8iy")
@@ -452,6 +456,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xjt7e")
+}],
+"loop": 1,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x0ka3")
 }, {
 "duration": 1.0,
@@ -481,6 +493,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0xo8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytlpd")
+}],
+"loop": 1,
+"name": &"Landing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7mj2a")
 }, {
 "duration": 1.0,
@@ -488,14 +511,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lbrxf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xjt7e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0xo8l")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -556,7 +573,80 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
-size = Vector2(18, 26)
+size = Vector2(17, 28)
+
+[sub_resource type="Animation" id="Animation_ta5nu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animacion_wanderer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -31)]
+}
+
+[sub_resource type="Animation" id="Animation_flf07"]
+resource_name = "jump"
+length = 0.36
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animacion_wanderer:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animacion_wanderer:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.12, 0.23999998, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.12, 0.23999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -31), Vector2(0, -35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k73cj"]
+_data = {
+&"RESET": SubResource("Animation_ta5nu"),
+&"jump": SubResource("Animation_flf07")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbwgr"]
 atlas = ExtResource("16_k73cj")
@@ -683,15 +773,16 @@ position = Vector2(1.9073486e-06, -41)
 scale = Vector2(0.4375, 0.4375)
 sprite_frames = SubResource("SpriteFrames_77to7")
 animation = &"jump"
-frame = 3
-frame_progress = 0.93121487
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wanderer" unique_id=937168982]
-position = Vector2(-1, -27)
+position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_aui74")
 
 [node name="Camera2D" type="Camera2D" parent="Wanderer" unique_id=1579820465]
 zoom = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wanderer" unique_id=755387919]
+libraries/ = SubResource("AnimationLibrary_k73cj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222291385]
 visible = false
@@ -700,19 +791,16 @@ scale = Vector2(1.6666666, 1.4135803)
 texture = ExtResource("9_4d7sh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=43631142]
-visible = false
 position = Vector2(0, 84.89081)
 scale = Vector2(1, 1.088428)
 texture = ExtResource("11_x0ka3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=668727902]
-visible = false
 position = Vector2(-24, 50.934494)
 scale = Vector2(1.0833334, 1.2860262)
 texture = ExtResource("10_hqns4")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D" unique_id=454215324]
-visible = false
 position = Vector2(237.6, -226.37553)
 scale = Vector2(1.825, 0.4192138)
 texture = ExtResource("13_d2bti")
@@ -730,7 +818,6 @@ scale = Vector2(3.388889, 3.075617)
 texture = ExtResource("3_rj586")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D3" unique_id=1534691903]
-visible = false
 z_index = -1
 position = Vector2(-570.6168, -29.343704)
 scale = Vector2(1.0420561, 0.9977421)

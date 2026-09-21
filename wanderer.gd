@@ -7,8 +7,8 @@ const JUMP_VELOCITY = -350.0
 const CLIMB_SPEED = -75
 @onready var _animatedSprite = $Animacion_wanderer
 
-func _ready() -> void:
-	_animatedSprite.animation_finished.connect(_on_animation_finished)
+#func _ready() -> void:
+	#_animatedSprite.animation_finished.connect(_on_animation_finished)
 func _physics_process(delta: float) -> void:
 	#animacion idle
 	# Add the gravity.
@@ -38,17 +38,24 @@ func _physics_process(delta: float) -> void:
 	#animaciones
 	if Input.is_action_pressed("ui_accept"):
 		_animatedSprite.play("jump")
-	elif Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") and is_on_floor():
-		if Input.is_action_pressed("Sprint"):
-			_animatedSprite.play("Correr")
-		else:
-			_animatedSprite.play("walk")
+	elif Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
+		if is_on_floor():
+			if Input.is_action_pressed("Sprint"):
+				_animatedSprite.play("Correr")
+			else:
+				_animatedSprite.play("walk")
+		elif not is_on_floor():
+			_animatedSprite.play("Fall")
 	else:
 		if is_on_floor():
 			_animatedSprite.play("Idle")
+		elif not is_on_floor() and not is_on_wall():
+			_animatedSprite.play("Fall")
 
 	move_and_slide()
-#funcion para gestionar los finales y transiciones de animaciones
-func _on_animation_finished() -> void:
-	
-	
+	#funcion para gestionar los finales y transiciones de animaciones
+	#func _on_animation_finished() -> void:
+		#if _animatedSprite.animation == "jump":
+			#if not is_on_floor() and not is_on_wall():
+				#_animatedSprite.play()
+			
