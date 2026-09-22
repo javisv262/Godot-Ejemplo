@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			_animatedSprite.play("Idle")
 		elif not is_on_floor() and not is_on_wall():
-			_animatedSprite.play("Fall")
+				_animatedSprite.play("Fall")
 
 	move_and_slide()
 	#funcion para gestionar los finales y transiciones de animaciones
