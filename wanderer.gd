@@ -5,6 +5,11 @@ const SPEED = 100.0
 const SPRINT_SPEED= 150
 const JUMP_VELOCITY = -350.0
 const CLIMB_SPEED = -75
+const VIDA_MAX = 100
+var vida_actual = 100
+const MANA_MAX = 100
+var mana_actual = 100
+const 
 @onready var _animatedSprite = $Animacion_wanderer
  
 var was_on_floor := true;

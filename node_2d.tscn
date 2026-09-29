@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://fehlrri5vmx8" path="res://craftpix-net-823949-free-nature-backgrounds-pixel-art/nature_3/1.png" id="15_ta5nu"]
 [ext_resource type="Texture2D" uid="uid://co4dgu7afgpir" path="res://Skeleton_Archer/Idle.png" id="16_k73cj"]
 [ext_resource type="Texture2D" uid="uid://c3wmf4p44lejb" path="res://Skeleton_Archer/Shot_1.png" id="17_flf07"]
-[ext_resource type="Script" uid="uid://6kdkcpchuntv" path="res://triger_esqueleto.gd" id="18_k73cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
 size = Vector2(432, 64)
@@ -1101,6 +1100,19 @@ texture = ExtResource("3_x0ka3")
 position = Vector2(232, 1)
 shape = SubResource("RectangleShape2D_lfkbx")
 
+[node name="Isla-2" type="StaticBody2D" parent="terreno" unique_id=467605611]
+position = Vector2(880, -47)
+
+[node name="Sprite2D" type="Sprite2D" parent="terreno/Isla-2" unique_id=1008439647]
+z_index = 1
+position = Vector2(240.00002, 0.99999905)
+scale = Vector2(0.5552414, 0.4007109)
+texture = ExtResource("3_x0ka3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="terreno/Isla-2" unique_id=2062437510]
+position = Vector2(232, 1)
+shape = SubResource("RectangleShape2D_lfkbx")
+
 [node name="Isla 2" type="StaticBody2D" parent="terreno" unique_id=779748370]
 position = Vector2(640, -7)
 
@@ -1194,14 +1206,14 @@ texture = ExtResource("15_ta5nu")
 
 [node name="Arc_esqueleto" type="CharacterBody2D" parent="." unique_id=937518168]
 z_index = 1
-position = Vector2(776, -152)
+position = Vector2(752, -152)
 script = ExtResource("15_flf07")
 
 [node name="Animacion_esqueleto" type="AnimatedSprite2D" parent="Arc_esqueleto" unique_id=1345358721]
 position = Vector2(96, -16)
 scale = Vector2(-0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_6f3ga")
-animation = &"Shoot"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arc_esqueleto" unique_id=16767140]
 position = Vector2(96, 0)
@@ -1211,7 +1223,7 @@ shape = SubResource("RectangleShape2D_1pkoy")
 libraries/ = SubResource("AnimationLibrary_t3mf0")
 
 [node name="Plataforma_enem" type="StaticBody2D" parent="." unique_id=898076325]
-position = Vector2(768, -104)
+position = Vector2(744, -104)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataforma_enem" unique_id=1016871426]
 position = Vector2(128, -16.000004)
@@ -1225,10 +1237,10 @@ shape = SubResource("RectangleShape2D_nhfc8")
 
 [node name="Triger Esqueleto" type="Area2D" parent="." unique_id=1343551062]
 position = Vector2(496, -224)
-script = ExtResource("18_k73cj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triger Esqueleto" unique_id=1613724019]
 position = Vector2(182, 40)
 shape = SubResource("RectangleShape2D_aos7j")
 
 [connection signal="body_entered" from="Triger Esqueleto" to="Arc_esqueleto" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Triger Esqueleto" to="Arc_esqueleto" method="_on_triger_esqueleto_body_exited"]

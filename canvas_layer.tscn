@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://j3rx0ymdjfwb"]
+
+[ext_resource type="Texture2D" uid="uid://gsk4rn6xg1yy" path="res://PNG/character_panel.png" id="1_v2lfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77to7"]
+atlas = ExtResource("1_v2lfg")
+region = Rect2(0.8966079, 32.746002, 88.11064, 31.761887)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=384668592]
+
+[node name="Control" type="Control" parent="." unique_id=861834482]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1218497528]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 31.0
+texture = SubResource("AtlasTexture_77to7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control" unique_id=948312354]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
