@@ -9,7 +9,7 @@ const VIDA_MAX = 100
 var vida_actual = 100
 const MANA_MAX = 100
 var mana_actual = 100
-const 
+const ESTAMINA_MAX = 100 
 @onready var _animatedSprite = $Animacion_wanderer
  
 var was_on_floor := true;
