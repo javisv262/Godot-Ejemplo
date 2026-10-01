@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://crig8wajtwofd" path="res://Skeleton_Warrior/Walk.png" id="20_ei405"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
-size = Vector2(432, 64)
+size = Vector2(416, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vicex"]
 size = Vector2(152, 72)
@@ -1197,7 +1197,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvhsf"]
-size = Vector2(11, 29)
+size = Vector2(11, 25.899994)
 
 [node name="Node2D" type="Node2D" unique_id=231852841]
 
@@ -1227,7 +1227,7 @@ scale = Vector2(0.5552414, 0.4007109)
 texture = ExtResource("3_x0ka3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="terreno/Isla-2" unique_id=2062437510]
-position = Vector2(232, 1)
+position = Vector2(240, 1)
 shape = SubResource("RectangleShape2D_lfkbx")
 
 [node name="Isla 2" type="StaticBody2D" parent="terreno" unique_id=779748370]
@@ -1263,7 +1263,7 @@ tile_set = SubResource("TileSet_lfkbx")
 
 [node name="Wanderer" type="CharacterBody2D" parent="." unique_id=1718241927]
 z_index = 2
-position = Vector2(0, -9)
+position = Vector2(-96, 0)
 script = ExtResource("4_rj586")
 
 [node name="Animacion_wanderer" type="AnimatedSprite2D" parent="Wanderer" unique_id=250463252]
@@ -1360,11 +1360,11 @@ position = Vector2(182, 40)
 shape = SubResource("RectangleShape2D_aos7j")
 
 [node name="Enemigo desafio 1" type="CharacterBody2D" parent="." unique_id=1511973005]
-position = Vector2(887, -62)
+position = Vector2(976, -24)
 script = ExtResource("18_fs4d3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemigo desafio 1" unique_id=1464189609]
-position = Vector2(-26.999998, 54.999996)
+[node name="Warrior_animations" type="AnimatedSprite2D" parent="Enemigo desafio 1" unique_id=1464189609]
+position = Vector2(-5.4000244, -0.3999939)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cvhsf")
 animation = &"walk"
@@ -1372,8 +1372,12 @@ frame = 4
 frame_progress = 0.004087796
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo desafio 1" unique_id=1677184497]
-position = Vector2(-29, 68)
+position = Vector2(-7.4, 12.05)
 shape = SubResource("RectangleShape2D_cvhsf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Enemigo desafio 1" unique_id=1843797059]
+position = Vector2(8, 24)
+target_position = Vector2(10, 10)
 
 [connection signal="body_entered" from="Triger Esqueleto" to="Arc_esqueleto" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Triger Esqueleto" to="Arc_esqueleto" method="_on_triger_esqueleto_body_exited"]
