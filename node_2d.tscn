@@ -1189,7 +1189,7 @@ script = ExtResource("4_rj586")
 position = Vector2(1.9073486e-06, -41)
 scale = Vector2(0.4375, 0.4375)
 sprite_frames = SubResource("SpriteFrames_77to7")
-animation = &"Correr"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wanderer" unique_id=937168982]
 position = Vector2(0, -31)

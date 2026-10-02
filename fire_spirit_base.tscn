@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://c1by5muk5vf0n"]
+
+[ext_resource type="Texture2D" uid="uid://hf82qgrisfrk" path="res://Fire_Spirit/Idle.png" id="1_0x67h"]
+[ext_resource type="Texture2D" uid="uid://gdshmx3fdmkl" path="res://Fire_Spirit/Run.png" id="2_spuhh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b8a1"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiqtb"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq03y"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wmnd"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inta"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfqv"]
+atlas = ExtResource("1_0x67h")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x3i4"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyawy"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe5mg"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_torb1"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm4kf"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs6ig"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvitp"]
+atlas = ExtResource("2_spuhh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvhsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b8a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiqtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq03y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wmnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wfqv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5x3i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyawy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe5mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_torb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm4kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs6ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvitp")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="FireSpiritBase" type="CharacterBody2D" unique_id=454494478]
+
+[node name="FSpirit_animations" type="AnimatedSprite2D" parent="." unique_id=335317154]
+sprite_frames = SubResource("SpriteFrames_cvhsf")
+animation = &"run"
+frame_progress = 0.45734045
