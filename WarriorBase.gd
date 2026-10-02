@@ -13,6 +13,8 @@ func _physics_process(delta: float) -> void:
 		girar()
 
 	velocity.x = direction * SPEED
+	if velocity.x != 0:
+		_animatedSprite.play("walk")
 	move_and_slide()
 func girar() -> void:
 	direction *= -1
