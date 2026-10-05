@@ -2,6 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://hf82qgrisfrk" path="res://Fire_Spirit/Idle.png" id="1_0x67h"]
 [ext_resource type="Texture2D" uid="uid://gdshmx3fdmkl" path="res://Fire_Spirit/Run.png" id="2_spuhh"]
+[ext_resource type="Texture2D" uid="uid://bqvvg768y1rci" path="res://Circle_explosion/Circle_explosion1.png" id="3_1wfqv"]
+[ext_resource type="Texture2D" uid="uid://8ficqwwjixpn" path="res://Circle_explosion/Circle_explosion2.png" id="4_5x3i4"]
+[ext_resource type="Texture2D" uid="uid://b856fnf87gi5p" path="res://Circle_explosion/Circle_explosion3.png" id="5_iyawy"]
+[ext_resource type="Texture2D" uid="uid://ylkh02bueoqu" path="res://Circle_explosion/Circle_explosion4.png" id="6_pe5mg"]
+[ext_resource type="Texture2D" uid="uid://d2d0ypb4xx4je" path="res://Circle_explosion/Circle_explosion5.png" id="7_torb1"]
+[ext_resource type="Texture2D" uid="uid://bgyoxugi4jxy4" path="res://Circle_explosion/Circle_explosion6.png" id="8_wm4kf"]
+[ext_resource type="Texture2D" uid="uid://bwgibnkkx16of" path="res://Circle_explosion/Circle_explosion7.png" id="9_hs6ig"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2b8a1"]
 atlas = ExtResource("1_0x67h")
@@ -80,8 +87,13 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}, {
 "frames": [{
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5x3i4")
 }, {
 "duration": 1.0,
@@ -104,12 +116,239 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvhsf"]
+
+[sub_resource type="Animation" id="Animation_dvitp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FSpirit_animations:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("explosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("explosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FSpirit_animations:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1001, -47)]
+}
+
+[sub_resource type="Animation" id="Animation_70bel"]
+resource_name = "TP"
+length = 1.2857143
+step = 0.1428
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FSpirit_animations:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("explosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1428, 0.2856, 0.4284, 0.5712, 0.714, 0.8568),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("explosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9384632),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FSpirit_animations:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.98635954),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1001, -47)]
+}
+
+[sub_resource type="Animation" id="Animation_100fl"]
+resource_name = "run"
+step = 0.1428
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FSpirit_animations:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1428, 0.2856, 0.4284, 0.5712, 0.714, 0.8568),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FSpirit_animations:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2hwd"]
+_data = {
+&"RESET": SubResource("Animation_dvitp"),
+&"TP": SubResource("Animation_70bel"),
+&"run": SubResource("Animation_100fl")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8u27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1wfqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5x3i4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iyawy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pe5mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_torb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wm4kf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hs6ig")
+}],
+"loop": 1,
+"name": &"explosion",
 "speed": 5.0
 }]
 
 [node name="FireSpiritBase" type="CharacterBody2D" unique_id=454494478]
+position = Vector2(1001, -47)
 
 [node name="FSpirit_animations" type="AnimatedSprite2D" parent="." unique_id=335317154]
+visible = false
 sprite_frames = SubResource("SpriteFrames_cvhsf")
 animation = &"run"
-frame_progress = 0.45734045
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113970245]
+rotation = -1.5707964
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CapsuleShape2D_cvhsf")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2061224704]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=341170346]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_cvhsf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599506067]
+libraries/ = SubResource("AnimationLibrary_i2hwd")
+
+[node name="explosion" type="AnimatedSprite2D" parent="." unique_id=1810169529]
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_a8u27")
+animation = &"explosion"
