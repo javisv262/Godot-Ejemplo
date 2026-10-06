@@ -18,12 +18,12 @@ func _physics_process(delta: float) -> void:
 		_animatedSprite.play("Shoot")
 
 
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Wanderer" :
 		triggered = true
 
 
-func _on_triger_esqueleto_body_exited(body: CharacterBody2D) -> void:
+func _on_triger_esqueleto_body_exited(body: Node2D) -> void:
 	if body.name == "Wanderer":
 		triggered = false
 	
