@@ -1401,7 +1401,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pkoy"]
-size = Vector2(16, 32)
+size = Vector2(7, 24)
 
 [sub_resource type="Animation" id="Animation_qgxp6"]
 length = 0.001
@@ -1417,10 +1417,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animacion_esqueleto:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot"]
+}
 
 [sub_resource type="Animation" id="Animation_akb8o"]
 resource_name = "Shoot"
-length = 1.875
+length = 2.25
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1434,12 +1446,70 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animacion_esqueleto:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disparar"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gt76g"]
+resource_name = "idle"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animacion_esqueleto:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animacion_esqueleto:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t3mf0"]
 _data = {
 &"RESET": SubResource("Animation_qgxp6"),
-&"Shoot": SubResource("Animation_akb8o")
+&"Shoot": SubResource("Animation_akb8o"),
+&"idle": SubResource("Animation_gt76g")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvhsf"]
+size = Vector2(11, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhfc8"]
 size = Vector2(813.7622, 225.3009)
@@ -1449,7 +1519,7 @@ size = Vector2(372, 98)
 
 [node name="Node2D" type="Node2D" unique_id=231852841]
 metadata/_edit_vertical_guides_ = [1602.0]
-metadata/_edit_horizontal_guides_ = [375.0]
+metadata/_edit_horizontal_guides_ = [375.0, -174.0]
 
 [node name="terreno" type="StaticBody2D" parent="." unique_id=839513246]
 position = Vector2(-232, 103)
@@ -1515,7 +1585,7 @@ tile_set = SubResource("TileSet_lfkbx")
 
 [node name="Wanderer" type="CharacterBody2D" parent="." unique_id=1718241927]
 z_index = 2
-position = Vector2(1576, 24)
+position = Vector2(367, -22)
 collision_layer = 129
 script = ExtResource("4_rj586")
 
@@ -1577,24 +1647,34 @@ texture = ExtResource("15_ta5nu")
 
 [node name="Arc_esqueleto" type="CharacterBody2D" parent="." unique_id=937518168]
 z_index = 1
-position = Vector2(752, -152)
+position = Vector2(844, -170)
 script = ExtResource("15_flf07")
 
 [node name="Animacion_esqueleto" type="AnimatedSprite2D" parent="Arc_esqueleto" unique_id=1345358721]
-position = Vector2(96, -16)
+texture_filter = 1
+position = Vector2(-1.9999919, -9.000001)
 scale = Vector2(-0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_6f3ga")
-animation = &"Idle"
+animation = &"Shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arc_esqueleto" unique_id=16767140]
-position = Vector2(96, 0)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_1pkoy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Arc_esqueleto" unique_id=1370630626]
 libraries/ = SubResource("AnimationLibrary_t3mf0")
 
+[node name="hurtbox" type="Area2D" parent="Arc_esqueleto" unique_id=1680602882]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arc_esqueleto/hurtbox" unique_id=834770556]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_cvhsf")
+
+[node name="origen flecha" type="Marker2D" parent="Arc_esqueleto" unique_id=402165261]
+position = Vector2(-3, -4)
+
 [node name="Plataforma_enem" type="StaticBody2D" parent="." unique_id=898076325]
-position = Vector2(744, -104)
+position = Vector2(744, -118)
 
 [node name="Sprite2D" type="Sprite2D" parent="Plataforma_enem" unique_id=1016871426]
 position = Vector2(128, -16.000004)
