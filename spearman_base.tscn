@@ -161,6 +161,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_877te"]
 resource_name = "atacar"
+length = 1.5714285
 step = 0.1428
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -181,10 +182,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1428, 0.2857143, 0.4285),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1428, 0.2857143, 0.4285, 1.1424),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -205,10 +206,10 @@ tracks/3/path = NodePath("hitbox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2857),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2857, 1.1424),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(-34.5, 33.5), Vector2(-54.5, 32.5)]
+"values": [Vector2(-34.5, 33.5), Vector2(-54.5, 32.5), Vector2(-34.5, 33.5)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -295,3 +296,15 @@ position = Vector2(-34.5, 33.5)
 scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_vicex")
 disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1487822749]
+position = Vector2(7, 32)
+target_position = Vector2(-80, 0)
+collision_mask = 128
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1503558910]
+position = Vector2(7, 32)
+target_position = Vector2(80, 0)
+collision_mask = 128
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
