@@ -155,6 +155,7 @@ radius = 8.0
 position = Vector2(3, 0)
 
 [node name="Magic_warrior_animation" type="AnimatedSprite2D" parent="." unique_id=1359285043]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lfkbx")
 animation = &"idle"
 frame = 3
@@ -179,6 +180,7 @@ position = Vector2(13, -32)
 script = ExtResource("3_yl4gv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Esfera" unique_id=278348494]
+texture_filter = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_aui74")
 animation = &"idle"

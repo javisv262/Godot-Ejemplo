@@ -1359,6 +1359,7 @@ position = Vector2(0, -16)
 
 [node name="Sprite2D" type="Sprite2D" parent="terreno/Isla-1" unique_id=242576586]
 z_index = 1
+texture_filter = 1
 position = Vector2(240.00002, 0.99999905)
 scale = Vector2(0.5552414, 0.4007109)
 texture = ExtResource("3_x0ka3")
@@ -1395,7 +1396,7 @@ shape = SubResource("RectangleShape2D_vicex")
 
 [node name="Pared" type="StaticBody2D" parent="terreno" unique_id=1270134352]
 z_index = 1
-position = Vector2(768, -71)
+position = Vector2(778, -72)
 
 [node name="Sprite2D" type="Sprite2D" parent="terreno/Pared" unique_id=1338387731]
 position = Vector2(8, -52)
@@ -1418,10 +1419,11 @@ position = Vector2(718, 4)
 script = ExtResource("4_rj586")
 
 [node name="Animacion_wanderer" type="AnimatedSprite2D" parent="Wanderer" unique_id=250463252]
+texture_filter = 1
 position = Vector2(1.9073486e-06, -41)
 scale = Vector2(0.4375, 0.4375)
 sprite_frames = SubResource("SpriteFrames_77to7")
-animation = &"walk"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wanderer" unique_id=937168982]
 position = Vector2(0, -31)
